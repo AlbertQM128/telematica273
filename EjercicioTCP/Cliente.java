@@ -18,6 +18,7 @@ public class Cliente {
         DataInputStream respuesta;
         DataOutputStream peticion;
         Scanner leer = new Scanner(System.in);
+        Socket socket = null;
         try {
             String op = "";
             while (true){
