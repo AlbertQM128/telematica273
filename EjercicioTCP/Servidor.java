@@ -32,14 +32,16 @@ public class Servidor {
                 InetAddress ip = socket.getInetAddress();
                 int pc = socket.getPort();
                 peticion = new DataInputStream(socket.getInputStream());
-                respuesta = new DataOutputStream(socket.getOutputStream());
-                
+                respuesta = new DataOutputStream(socket.getOutputStream());             
                 String opcion = peticion.readUTF();
-                String res = Respuesta(opcion);
-                System.out.println(pc + "\t\t" + ip.getHostAddress());
-                
-                respuesta.writeUTF(res);
-                socket.close();
+                if(opcion.equals("SALIR")){
+                    respuesta.writeUTF("Cliente cerrado.");
+                }else{
+                    String res = Respuesta(opcion);
+                    System.out.println(pc + "\t\t" + ip.getHostAddress());
+                    respuesta.writeUTF(res);
+                    socket.close();
+                }
             }
         }catch (IOException ex) {
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
