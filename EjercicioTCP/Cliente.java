@@ -32,12 +32,11 @@ public class Cliente {
                 System.out.println("\tOpcion Salir");
                 System.out.println("Elija una opcion: ");
                 op = (leer.nextLine()).toUpperCase();
+                peticion.writeUTF(op);
+                String mensaje = respuesta.readUTF();
+                System.out.println(mensaje);
                 if(op.equals("SALIR")){
                     break;
-                }else{
-                    peticion.writeUTF(op);
-                    String mensaje = respuesta.readUTF();
-                    System.out.println(mensaje);
                 }
             }
             socket.close();
