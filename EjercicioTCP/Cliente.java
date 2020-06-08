@@ -38,8 +38,8 @@ public class Cliente {
                     String mensaje = respuesta.readUTF();
                     System.out.println(mensaje);
                 }
-                socket.close();
             }
+            socket.close();
         } catch (IOException ex) {
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
         }   
