@@ -19,12 +19,11 @@ public class Cliente {
         DataOutputStream peticion;
         Scanner leer = new Scanner(System.in);
         try {
-            Socket socket = new Socket(host, puerto);
-            
-            respuesta = new DataInputStream(socket.getInputStream());
-            peticion = new DataOutputStream(socket.getOutputStream());
             String op = "";
             while (true){
+                Socket socket = new Socket(host, puerto);            
+                respuesta = new DataInputStream(socket.getInputStream());
+                peticion = new DataOutputStream(socket.getOutputStream());
                 System.out.println("\t\tMENU");
                 System.out.println("\tOpcion 1");
                 System.out.println("\tOpcion 2");
